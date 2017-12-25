@@ -1,0 +1,31 @@
+<!doctype html>
+<meta>
+  <title>WYV ERC20 Port Countdown</title>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+</meta>
+<style>
+  body { text-align: center; padding: 150px; }
+  h1 { font-size: 40px; }
+  body { font: 20px Helvetica, sans-serif; color: #333; }
+  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
+  a { color: #dc8100; text-decoration: none; }
+  a:hover { color: #333; text-decoration: none; }
+</style>
+
+<article>
+    <h1>The ERC20 token port snapshot will be taken at block 310000.<br /><br /><span id="current"></span></h1>
+    <div>
+        <p>The UTXO set at that block will be used for the ERC20 token port, meaning that you'll be able to turn your Wyvern into WYV ERC20 tokens at <a href="https://redeem.projectwyvern.com">redeem.projectwyvern.com</a>.</p>
+        <p>In order to receive ERC20 tokens, you need to hold your Wyvern in a wallet you control. <strong>If you hold Wyvern on an exchange, you need to withdraw it prior to block 310000.</strong></p>
+        <p>Any questions? Get in touch with us on <a href="https://riot.im/app/#/room/#projectwyvern:matrix.org">Riot</a>.</p>
+        <p>&mdash; The Project Wyvern Developers</p>
+    </div>
+</article>
+
+<script type="text/javascript">
+$(function() {
+  $.getJSON('https://chainz.cryptoid.info/wyv/api.dws?q=getblockcount', function(count) {
+    $('#current').text('Current block: ' + count + '.')
+  })
+});
+</script>
